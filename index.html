@@ -5,16 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NIVAS | Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body class="loading-active">
 
     <div id="loader">
         <div class="loader-content">
-            <div class="ns-logo">
-                <span>n</span><span>s</span>
-            </div>
+            <div class="ns-logo"><span>n</span><span>s</span></div>
             <div class="loader-text">
                 <p>load nivas</p>
                 <div class="progress-bar"><div class="fill"></div></div>
@@ -24,72 +21,62 @@
 
     <main id="main-content">
         
-        <nav>
-            <div class="logo">ns.</div>
-            <div class="menu">
-                <a href="#work">Work</a>
-                <a href="#about">About</a>
-                <a href="mailto:your-email@gmail.com" class="contact-btn">Contact</a>
+        <header class="top-bar">
+            <div class="logo">NIVAS—STUDIO</div>
+            <div class="nav-links">
+                <a href="#work">INDEX</a>
+                <a href="#about">INFO</a>
             </div>
-        </nav>
+        </header>
 
-        <section class="hero">
-            <div class="hero-text">
-                <h1>VISUAL<br><span class="outline">DESIGNER</span> &<br><span class="red-text">DEVELOPER</span></h1>
+        <section class="hero-grid">
+            <div class="hero-cell big-text">
+                <h1>DIGITAL<br>DESIGNER<span class="red-dot">.</span></h1>
             </div>
-            <div class="scroll-indicator">
-                <span>SCROLL</span>
-                <div class="line"></div>
+            <div class="hero-cell location">
+                <p>BASED IN<br>CHENNAI, IN</p>
+            </div>
+            <div class="hero-cell status">
+                <p>AVAILABLE FOR<br>FREELANCE 2026</p>
             </div>
         </section>
 
-        <section id="work" class="work-list">
-            <div class="section-header">
-                <p>SELECTED WORKS (2024-26)</p>
+        <section id="work" class="project-list">
+            <div class="list-header">
+                <span>PROJECT</span>
+                <span>ROLE</span>
+                <span>YEAR</span>
             </div>
 
-            <div class="project-item">
-                <div class="project-info">
-                    <h2>Brand Identity</h2>
-                    <p>Art Direction / Web Design</p>
-                </div>
-                <div class="project-year">2026</div>
-                <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop');"></div>
+            <div class="project-row" data-image="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000">
+                <div class="p-name">FERRARI CONCEPTS</div>
+                <div class="p-role">Art Direction</div>
+                <div class="p-year">2026</div>
             </div>
 
-            <div class="project-item">
-                <div class="project-info">
-                    <h2>Neon Interface</h2>
-                    <p>UI/UX / Development</p>
-                </div>
-                <div class="project-year">2025</div>
-                <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000&auto=format&fit=crop');"></div>
+            <div class="project-row" data-image="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1000">
+                <div class="p-name">NEON INTERFACE</div>
+                <div class="p-role">UI/UX Design</div>
+                <div class="p-year">2025</div>
             </div>
 
-            <div class="project-item">
-                <div class="project-info">
-                    <h2>Ferrari Concept</h2>
-                    <p>3D Motion / Concept</p>
-                </div>
-                <div class="project-year">2025</div>
-                <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1594956799484-98444a9d7099?q=80&w=2000&auto=format&fit=crop');"></div>
+            <div class="project-row" data-image="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1000">
+                <div class="p-name">TYPE FOUNDRY</div>
+                <div class="p-role">Development</div>
+                <div class="p-year">2025</div>
             </div>
+
+            <div id="cursor-image"></div>
         </section>
 
-        <section id="about" class="footer-section">
-            <div class="about-text">
-                <p>I build immersive digital experiences with a focus on motion, typography, and precision.</p>
+        <section id="about" class="footer">
+            <div class="footer-link">
+                <a href="mailto:hello@nivas.com">GET IN TOUCH</a>
             </div>
-            <div class="big-link">
-                <a href="mailto:hello@nivas.com">LET'S WORK<br>TOGETHER</a>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2026 NIVAS.</p>
-                <div class="socials">
-                    <a href="#">Instagram</a>
-                    <a href="#">LinkedIn</a>
-                    <a href="#">GitHub</a>
-                </div>
+            <div class="footer-info">
+                <span>INSTAGRAM</span>
+                <span>LINKEDIN</span>
+                <span>© 2026</span>
             </div>
         </section>
 
