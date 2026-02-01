@@ -2,7 +2,7 @@
     --red: #FF2800;      /* Ferrari Red */
     --black: #050505;    /* Deep Black */
     --white: #ffffff;
-    --border: #333333;   /* Visible Grid Lines */
+    --border: #333333;   /* Grid Lines */
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; cursor: default; }
@@ -10,98 +10,68 @@
 body {
     background-color: var(--black);
     color: var(--white);
-    font-family: 'Inter', Helvetica, sans-serif;
+    font-family: 'Inter', sans-serif;
     text-transform: uppercase;
     overflow-x: hidden;
 }
 
-/* === LOADER (Keep your requested style) === */
+/* === LOADER === */
 #loader {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background: var(--red);
     z-index: 999;
     display: flex; align-items: center; justify-content: center;
     transition: transform 0.6s cubic-bezier(0.7, 0, 0.3, 1);
 }
-.ns-logo { font-weight: 900; font-size: 8rem; color: var(--black); letter-spacing: -5px; }
-.loader-text { position: absolute; bottom: 50px; text-align: center; color: var(--black); }
-.progress-bar { width: 200px; height: 2px; background: rgba(0,0,0,0.2); margin-top: 10px; }
+.ns-logo { font-family: 'Anton', sans-serif; font-size: 8rem; color: var(--black); letter-spacing: -5px; line-height: 1; }
+.loader-text { position: absolute; bottom: 50px; text-align: center; color: var(--black); font-weight: 600; }
+.progress-bar { width: 200px; height: 3px; background: rgba(0,0,0,0.1); margin-top: 15px; }
 .fill { height: 100%; background: #000; width: 0%; animation: fill 3s linear forwards; }
 @keyframes fill { 100% { width: 100%; } }
 
 body.loaded #loader { transform: translateY(-100%); pointer-events: none; }
 body.loading-active { overflow: hidden; }
 
-/* === HEADER === */
+/* === GRID LAYOUT === */
 .top-bar {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 40px;
-    border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 0;
-    background: var(--black);
-    z-index: 100;
+    display: flex; justify-content: space-between; padding: 20px 40px;
+    border-bottom: 1px solid var(--border); position: sticky; top: 0;
+    background: var(--black); z-index: 100;
 }
-.nav-links a { 
-    color: var(--white); text-decoration: none; margin-left: 20px; 
-}
+.nav-links a { color: var(--white); text-decoration: none; margin-left: 20px; font-weight: 600; }
 .nav-links a:hover { color: var(--red); }
 
-/* === HERO GRID === */
 .hero-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: auto auto;
+    display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: auto auto;
     border-bottom: 1px solid var(--border);
 }
-
-.hero-cell {
-    padding: 40px;
-    border-right: 1px solid var(--border);
-}
-
-.big-text { grid-row: span 2; font-size: 6vw; line-height: 0.9; font-weight: 600; }
+.hero-cell { padding: 60px 40px; border-right: 1px solid var(--border); }
+.big-text { grid-row: span 2; font-size: 5vw; line-height: 0.9; font-weight: 700; letter-spacing: -1px; }
 .red-dot { color: var(--red); }
-.location, .status { display: flex; align-items: flex-end; font-size: 0.9rem; color: #888; }
+.location, .status { display: flex; align-items: flex-end; color: #888; font-size: 0.85rem; line-height: 1.4; }
 
-/* === PROJECT LIST (The Key Feature) === */
-.project-list { position: relative; }
+/* === PROJECT LIST === */
+.list-header { display: grid; grid-template-columns: 2fr 2fr 1fr; padding: 20px 40px; border-bottom: 1px solid var(--border); color: #666; font-size: 0.8rem; }
+.project-row { display: grid; grid-template-columns: 2fr 2fr 1fr; padding: 40px; border-bottom: 1px solid var(--border); transition: background 0.2s; align-items: center; }
+.project-row:hover { background-color: #111; color: var(--red); }
 
-.list-header, .project-row {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr; /* Name gets more space */
-    padding: 30px 40px;
-    border-bottom: 1px solid var(--border);
-    transition: background 0.2s;
-}
-
-.list-header { color: #555; font-size: 0.8rem; }
-.project-row:hover { background-color: #111; color: var(--red); cursor: pointer; }
-.project-row:last-child { border-bottom: none; }
-
-.p-name { font-size: 1.5rem; font-weight: 600; }
-.p-role, .p-year { display: flex; align-items: center; color: #888; }
-
-/* === FLOATING CURSOR IMAGE === */
-#cursor-image {
-    position: fixed;
-    top: 0; left: 0;
-    width: 300px; height: 400px;
-    background-size: cover;
-    background-position: center;
-    pointer-events: none; /* Let clicks pass through */
-    z-index: 50;
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.5);
-    transition: opacity 0.2s, transform 0.1s linear;
-    mix-blend-mode: normal;
-}
-.show-img { opacity: 1 !important; transform: translate(-50%, -50%) scale(1) !important; }
+.p-name { font-size: 2rem; font-weight: 600; }
+.p-role { color: #888; text-transform: none; font-size: 1rem; }
+.project-row:hover .p-role { color: var(--white); }
 
 /* === FOOTER === */
-.footer { border-top: 1px solid var(--border); padding: 100px 40px; }
-.footer-link a { font-size: 8vw; color: var(--white); text-decoration: none; line-height: 0.8; }
+.footer { padding: 100px 40px; }
+.bio-text { font-size: 1.5rem; text-transform: none; margin-bottom: 80px; max-width: 800px; color: #ccc; }
+.footer-link a { font-size: 9vw; color: var(--white); text-decoration: none; line-height: 0.8; font-weight: 700; display: block; margin-bottom: 50px; }
 .footer-link a:hover { color: var(--red); }
-.footer-info { display: flex; gap: 30px; margin-top: 50px; color: #666; font-size: 0.9rem; }
+.footer-info { display: flex; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 30px; color: #666; font-size: 0.9rem; }
+
+/* === FLOATING IMAGE === */
+#cursor-image {
+    position: fixed; pointer-events: none; z-index: 50;
+    width: 350px; height: 220px; /* Rectangle landscape */
+    background-size: cover; background-position: center;
+    opacity: 0; transform: translate(-50%, -50%) scale(0.8);
+    transition: opacity 0.2s, transform 0.1s linear;
+}
+.show-img { opacity: 1 !important; transform: translate(-50%, -50%) scale(1) !important; }
